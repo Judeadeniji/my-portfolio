@@ -10,7 +10,7 @@
 
       let thisForm = this;
 
-      let action = thisForm.getAttribute('action');
+      let action = 'https://port-api.onrender.com/api/contact';
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
       
       if( ! action ) {
