@@ -333,7 +333,7 @@
 
           <div class="col-12 mt-5 mt-lg-0">
 
-            <form action="https://port-api.onrender.com/api/contact" method="post" role="form" class="php-email-form">
+            <form action="https://port-api.onrender.com/api/contact" method="post" id="form" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -353,7 +353,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button id="submit" type="submit">Send Message</button></div>
             </form>
 
           </div>
@@ -408,6 +408,28 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+       $(() => {
+    $('#submit').click(
+        function(event) {
+            event.preventDefault();
+            var form = $('#form');
+            var url = 'https://port-api.onrender.com/api/contact';
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: form.serialize(),
+                success: function(data) {
+                  console.log(data);
+                }
+            })
+
+        }
+    )
+})
+
+  </script>
 
 </body>
 
