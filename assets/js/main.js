@@ -265,7 +265,7 @@
   const getProjects = function () {
     const xhttp = new XMLHttpRequest();
     xhttp.open(
-        "GET", "http://localhost:8000/api/projects/", false
+        "GET", "https://port-api.onrender.com/api/projects", false
     );
     xhttp.send();
     const projects = JSON.parse(xhttp.responseText);
