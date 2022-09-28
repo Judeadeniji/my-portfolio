@@ -350,8 +350,8 @@
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div id="error" class="error-message"></div>
+                <div id="sent" class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button id="submit" type="submit">Send Message</button></div>
             </form>
@@ -380,7 +380,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span id="date"></span></strong>. All Rights Reserved
 <br>
-        Made with love and <i><b>Bootstrap</b> </i>
+        Made with love ❤ and <i><b>Bootstrap</b> </i>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -420,11 +420,22 @@
              type: 'POST',
              url: url,
              data: form.serialize(),
-             success: function(data) {
+             success: function() {
                document.getElementById('sent').style = 'display: block';
+
+               setTimeout(() => {
+                document.getElementById('sent').style = 'display: none';
+                    }, 2000);
              },
              error: function(data) {
-              console.log(data);
+              
+              document.getElementById('error').innerHTML = data;
+              document.getElementById('error').style = 'display: block';
+
+
+setTimeout(() => {
+ document.getElementById('error').style = 'display: none';
+     }, 2000);
              }
          })
 
