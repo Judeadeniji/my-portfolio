@@ -333,7 +333,7 @@
 
           <div class="col-12 mt-5 mt-lg-0">
 
-            <form id="form" role="form" class="php-email-form">
+            <form method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -351,9 +351,9 @@
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div id="sent" class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button id="submit" type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
 
           </div>
@@ -394,9 +394,8 @@
     </div>
   </div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
+
   <!-- Vendor JS Files -->
-  <script src="https://olu-port-admin.onrender.com/lib/jquery/jquery.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -405,32 +404,10 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <!-- <script src="assets/vendor/contact-form/validate.js"></script> -->
+  <script src="assets/vendor/contact-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-       $(() => {
-    $('#submit').click(
-        function(event) {
-            event.preventDefault();
-            var form = $('#form');
-            var url = 'https://port-api.onrender.com/api/contact';
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: form.serialize(),
-                success: function(data) {
-                  document.getElementById('sent').style = 'display: block';
-                }
-            })
-
-        }
-    )
-})
-
-  </script>
 
 </body>
 
