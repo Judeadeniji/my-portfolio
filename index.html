@@ -427,9 +427,9 @@
                 document.getElementById('sent').style = 'display: none';
                     }, 2000);
              },
-             error: function(data) {
+             error: function(err) {
               
-              document.getElementById('error').innerHTML = data;
+              document.getElementById('error').innerHTML = err;
               document.getElementById('error').style = 'display: block';
 
 
